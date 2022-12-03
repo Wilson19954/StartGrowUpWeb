@@ -1,0 +1,95 @@
+﻿@model Usuario
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/formularios.css">
+    <script src="https://kit.fontawesome.com/9ab573c9fb.js" crossorigin="anonymous"></script>
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div class="content">
+
+        <div class="imagem">
+            <img src="/IMG/Mobile login-bro 1.svg" alt="">
+        </div>
+
+        <div class="cadastro">
+            <div class="topo">
+                <p class="titulo">CADASTRE-SE!</p>
+                <hr id="hr">
+                <p class="sub">Crie já sua conta</p>
+            </div>
+            <form method="post" enctype="multipart/form-data">
+                <div class="container">
+
+                    <div class="cl-1">
+                        <label for="tipo" class="tipo">SELECIONE O TIPO DE CONTA:</label>
+                        
+                        <div>
+                            <select name="tipo" id="tipo">
+                                <option>Selecione</option>
+                                <option value="investidor">Investidor</option>
+                                <option value="starup">Starup</option>
+                                <option value="pessoa">Pessoa Física</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <input type="text" name="nome" placeholder="NOME">
+                        </div>
+
+                        <div>
+                            <input type="text" name="telefone" placeholder="TELEFONE">
+                        </div>
+
+                        <div>
+                            <input type="text" name="endereco" placeholder="ENDEREÇO">
+                        </div>
+
+                        <div>
+                            <input type="text" name="email" placeholder="E-MAIL">
+                        </div>
+
+                        <div>
+                            <input type="text" name="doc" placeholder="CPF/CNPJ">
+                        </div>
+                    </div>
+
+                    <div class="cl-2">
+                        <div>
+                            <input type="text" name="desc" placeholder="BIOGRAFIA">
+                        </div>
+
+                        <label for="tipo" class="tipo">Escolha a foto de perfil</label>
+                        <div>
+                            <input type="file" name="arquivo" class="foto">
+                        </div>
+
+                        <div>
+                            <input type="password" name="senha" placeholder="SENHA">
+                        </div>
+                        
+                        <button type="submit">
+                            CRIAR CONTA
+                        </button>
+
+                    </div>
+                </div>
+            </form>
+
+            <p class="conta">Já possui conta? <a href="~/Usuario/LogarUsuario">Entre na sua conta</a></p>
+
+        </div>
+
+
+
+
+    </div>
+</body>
+
+</html>

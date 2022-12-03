@@ -1,0 +1,148 @@
+﻿@model List<Publicacoes>;
+@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+@using MySql.Data.MySqlClient;
+<!doctype html>
+<html lang="pt-br">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="/JS/index.js">
+    <script src="https://kit.fontawesome.com/9ab573c9fb.js"
+      crossorigin="anonymous"></script>
+    <title>Página Inicial</title>
+  </head> 
+
+  <body>
+
+      <header>
+          <nav class="navbar navbar-expand-lg ">
+              <div class="container">
+                  <div>
+                      <a href="~/Publicacoes/ListarPublicacoes"><img class="logo" src="/IMG/logo1.JPG"></a>
+                  </div>
+
+
+                  <form class=" pesquisa d-flex">
+                      <input class="form-control me-2" type="search"
+                             placeholder="Pesquisar" aria-label="Search">
+                      <button class="btn btn-outline-primary" type="submit">
+                          <i class="fa-solid fa-magnifying-glass"></i>
+                      </button>
+                  </form>
+
+
+
+                  <div class="div-links">
+
+                      <div class="dropdown">
+                          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                              <ul class="navbar-nav">
+                                  <li class="nav-item dropdown">
+                                      <a class="nav-link" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                          <i id="icones" class="fa-solid fa-square-plus"></i>
+                                      </a>
+                                      <ul class="dropdown-menu dropdown-menu-white" aria-labelledby="navbarDarkDropdownMenuLink">
+                                          <li><a class="dropdown-item" href="~/Publicacoes/Publicar">Publicação</a></li>
+                                          <li><a class="dropdown-item" href="~/Projetos/CadastrarProjeto">Projeto</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                      @if (Context.Session.GetString("user") == null)
+                      {
+
+
+                          <div class="link">
+                              <a href="~/Publicacoes/ListarPublicacoesPerfil">Nome do Usuário</a>
+                          </div>
+                      }
+                      else
+                      {
+                          Usuario u = JsonConvert.DeserializeObject<Usuario>
+                          (Context.Session.GetString("user").ToString());
+                          <div class="link">
+                              <a href="~/Publicacoes/ListarPublicacoesPerfil">@u.Nome</a>
+                          </div>
+                      }
+                      <div class="link">
+                          <a href="~/Usuario/Sair"><i id="icones" class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                      </div>
+                  </div>
+              </div>
+
+          </nav>
+      </header>
+      <div class="publicacao-perfil">
+          <a class="link-perfil" href="~/Publicacoes/ListarPublicacoes"><strong>PUBLICAÇÃO</strong></a>
+          <a class="link-perfil" href="~/Projetos/ListarProjetoInicial"><strong>PROJETO</strong></a>
+
+      </div>
+      @foreach (Publicacoes p in Model)
+      {
+          byte[] img_user = null;
+          string nome_user = "";
+          MySqlConnection con = new MySqlConnection("Server=ESN509VMYSQL;Database=sgu;User id=aluno;Password=Senai1234");
+          con.Open();
+          MySqlCommand comando = new MySqlCommand("select img_user , nome_user from usuario where doc_user = @doc", con);
+          comando.Parameters.AddWithValue("@doc", p.Doc_user);
+          MySqlDataReader leitor = comando.ExecuteReader();
+          while (leitor.Read())
+          {
+              img_user = (byte[])leitor["img_user"];
+              nome_user = leitor["nome_user"].ToString();
+          }
+
+          string formatoImg_user = "data:image/jpeg;base64," + Convert.ToBase64String(img_user);
+          string formatoImg_pub = "data:image/jpeg;base64," + Convert.ToBase64String(p.Img);
+          con.Close();
+
+          <div class="publicacao container">
+
+              <div class="identificacao conteiner row ">
+                  <div class="foto-perfil col-3">
+                      <img src="@formatoImg_user">
+                  </div>
+                  <div class="col">
+                      <h4>@nome_user</h4>
+                      <h6>@p.Desc</h6>
+                  </div>
+              </div>
+
+              <div class="imagens container">
+                  <img src="@formatoImg_pub" />
+              </div>
+
+              <div class="comentarios">
+                  <button id="like">
+                      <div class="label">
+                          <i class="fa-regular fa-heart coracao"></i>
+                          @Html.ActionLink("Curtir", "AdicionarLike", new { cod_pub = p.Cod })
+                      </div>
+
+
+                      <div class="number" id="number">@p.Like</div>
+                  </button>
+              </div>
+          </div>
+      }
+
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+              integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+              crossorigin="anonymous"></script>
+
+      <script src="/JS/index.js"></script>
+
+  </body>
+
+</html>

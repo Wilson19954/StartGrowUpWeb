@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+@{
+    Usuario u = JsonConvert.DeserializeObject<Usuario>
+        (Context.Session.GetString("user").ToString());
+}
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/publicacao.css">
+    <script src="https://kit.fontawesome.com/9ab573c9fb.js" crossorigin="anonymous"></script>
+    <title>Publicação</title>
+</head>
+
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-top row">
+                <div class="col-md-6 col-4">
+                    <a href="~/Projetos/ListarProjetoInicial"><img class="logo" src="/IMG/logo1.JPG"></a>
+                </div>
+
+                <div class="div-links col-md-4 col-8 mt-3">
+
+                    <div class="dropdown">
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i id="icones" class="fa-solid fa-square-plus"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-white" aria-labelledby="navbarDarkDropdownMenuLink">
+                                        <li><a class="dropdown-item" href="~/Publicacoes/Publicar">Publicação</a></li>
+                                        <li><a class="dropdown-item" href="~/Projetos/CadastrarProjeto">Projeto</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="link">
+                        <a href="#">Perfil</a>
+                    </div>
+
+                    <div class="link">
+                        <a href="~/Projetos/ListarProjetoInicial"><i id="icones" class="fa-solid fa-house-user"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <div class="conteiner">
+
+        <div class="titulo">
+            <p>PUBLICAÇÃO</p>
+            <hr>
+        </div>
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="container">
+
+                <div class="cl-1">
+
+                    <div>
+                        <input type="text" name="desc" placeholder="DESCRIÇÃO">
+                    </div>
+
+                    <div>
+                        <input type="file" name="arquivo">
+                    </div>
+
+                    <div>
+                        <input type="hidden" class="campo-transparente" value="@u.Doc" name="doc_user" readonly>
+                    </div>
+
+                </div>
+
+                <div class="cl-2">
+
+                    <div>
+                        
+                        <label for="tipo" class="tipo">SELECIONE A CATEGORIA:</label>
+
+                        <select name="tag" id="tipo">
+                            <option>Selecione</option>
+                            <option value="Tecnologia">Tecnologia</option>
+                            <option value="Ciencia">Ciencia</option>
+                            <option value="Educacao">Educação</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">
+                        PUBLICAR
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+
+body{
+    background-color: rgb(38,15,38) !important;
+    background-image: linear-gradient(90deg, rgba(38,15,38,1) 0%, rgba(37,31,71,1) 25%, rgba(64,78,124,1) 50%, rgba(37,31,71,1) 75%, rgba(38,15,38,1) 100%) !important;
+}
+
+
+header{
+ height: 100%;
+ width: 100%;
+ background-color: #260F26;
+ 
+}
+
+.container{width:100%;}
+
+.logo{
+    height: 90px ;
+    width: 90px ;
+}
+
+#icones{
+    color: white;
+    font-size: 30px;
+    margin-left: 30px;
+    margin-right: 20px;
+
+}
+
+.dropdown-menu{
+    margin-left:35%
+}
+
+a{
+    color: white;
+    text-decoration: none ;
+
+}
+
+a:hover {
+    color: white;
+}
+
+.pesquisa{
+    justify-content: center;
+}
+.link{
+    font-size: 18px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.link-perfil {
+    font-size: 20px;
+    margin:auto;
+    gap:5px;
+    margin-top: 10px;
+}
+
+.div-links{
+    display: flex;
+    justify-content: space;
+    justify-content: center;
+}
+.publicacao-perfil {
+    font-size: 20px;
+    margin-top: 10px;
+    display:flex;
+    justify-content:center;
+    width:30%;
+    margin:auto;
+}
+
+.nome{
+    font-size:25px;
+    margin-top:3%;
+}
+
+.link a{text-decoration:none;}
+
+    .publicacao-perfil a:hover{
+        color:#7fb7e6;
+        transition:1s;
+       text-decoration:underline;
+
+       
+    }
+
+    .linha{
+        color: white;
+        width:70%;
+        margin:auto;
+    }
+
+    .publicacao {
+        height: 550px;
+        width: 750px;
+        background-color: white;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        border-radius: 10px;
+    }
+
+.identificacao{
+    margin: 50px;
+    margin-top: 50px;
+    display: flex;
+}
+
+h4{
+    margin: 10px;
+    margin-top: 50px;
+
+}
+
+.foto-perfil{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin: 20px;
+    margin-top: 40px;
+    justify-content:center;
+    align-items:center;
+}
+
+    .foto-perfil img {
+        width: 100%;
+        height: 100%;
+        border-radius:100%;
+    }
+
+
+.imagens {
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 450px;
+}
+
+    .imagens img {
+        width: 100%;
+        height: 100%;
+
+    }
+
+/*botao like*/
+button{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 1.1rem;
+    color: #000;
+    cursor: pointer;
+    
+    
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+    text-decoration:none !important;
+
+}
+
+.label i {
+    margin-right: 4px;
+    color: rgba(37,31,71,1);
+}
+
+.number {
+    color: rgba(37,31,71,1);
+}
+
+button:hover i {
+    color: rgba(37,31,71,1);
+}
+
+button .like .number {
+    color: rgba(37,31,71,1);
+}
+
+button.like i {
+    animation: transitionLike 1s ease-in;
+    color: rgba(37,31,71,1);
+}
+
+.comentarios {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    margin-right: 4rem;
+    gap: 3%;
+}
+
+@keyframes transitionLike {
+    0% {
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.3);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+/*------------------------------------------*/
+
+
+
+

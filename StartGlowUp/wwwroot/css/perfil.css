@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: url(../assests/image/background.png);
+    background-size: cover;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    background: #260F26;
+}
+
+nav .logo{
+    width: 69px;
+}
+
+nav .pesquisar{
+    width: 420px;
+    height: 30px;
+    background: #FFFFFF;
+    border-radius: 30px;
+}
+
+nav .sair{
+    margin-top: 10px;
+    width: 40px;
+}
+
+
+.meuperfil{
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.foto-perfil{
+    display: inline-block;
+    margin-left: 6%;
+    margin-top: 5%;
+    width: 154px;
+    height: 154px;
+    background: #D9D9D9;
+    border-radius: 50%;
+    float: left;
+
+}
+
+.meuperfil h1{
+    display: inline-block;
+    margin-top: 5%;
+    margin-left: 10%;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 29px;
+    float: left;
+}
+
+.meuperfil p{
+    display: inline-block;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    margin-left: 38%;
+   margin-top: -100%;
+    font-size: 16px;
+    line-height:1.5em;
+}
+
+.publi-proj{
+    width: 100%;
+    max-width: 34%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.publi-proj a{
+    color: white;
+    text-decoration: none;
+    size: 18px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.publi-proj a:last-child{
+    color: white;
+    float: right;
+}
+
+.add a{
+    width: 55px;
+    position: fixed;
+    background-image: url(/assests/image/icon-add.png);
+    background-size: cover;
+    height: 55px;
+    left: 90%;
+    top: 87%;
+    
+}
+
+.postagem{
+    width: 800px;
+    height: 750px;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    margin-bottom: 900px;
+}
+
+.postagem .foto-perfil{
+    width: 110px;
+    height: 110px;
+}
+
+.postagem h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+}
+
+.postagem p{
+    display: block;
+}
+
+.postagemimg{
+    background: #D9D9D9;
+    width: 80%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+hr{
+    background: #A5C4D4;
+}
+
+@media screen and (max-width: 820px){
+    .postagem{
+        margin: auto;
+    }
+
+    button{
+        float: left;
+    }
+}
+
+
+
+
+
